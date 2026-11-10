@@ -308,6 +308,20 @@
     border-top: 1px solid var(--border);
   }
 
+  @media (max-width: 500px) {
+    .form-actions {
+      flex-direction: column-reverse;
+      gap: 10px;
+    }
+
+    .form-actions :global(.btn),
+    .form-actions button {
+      width: 100%;
+      min-height: 46px;
+      justify-content: center;
+    }
+  }
+
   .mb-0 {
     margin-bottom: 0 !important;
   }
