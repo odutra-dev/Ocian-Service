@@ -37,4 +37,11 @@ describe('WhatsAppService', () => {
     expect(msg).not.toContain('👤 Cliente:');
     expect(msg).not.toContain('📝 Observação:');
   });
+
+  it('does not include any physical store address in the message', () => {
+    const msg = WhatsAppService.formatarMensagemOrdem(mockOrdem);
+    expect(msg.toLowerCase()).not.toContain('endereço');
+    expect(msg.toLowerCase()).not.toContain('rua');
+    expect(msg.toLowerCase()).not.toContain('av.');
+  });
 });
