@@ -53,4 +53,12 @@ describe('CurrencyUtils', () => {
       expect(CurrencyUtils.doubleToCentsDigits(NaN)).toBe('');
     });
   });
+
+  describe('formatCentsToCurrency', () => {
+    it('formats cents string to Brazilian Real currency string', () => {
+      expect(CurrencyUtils.formatCentsToCurrency('1550').replace(/\u00a0/g, ' ')).toBe('R$ 15,50');
+      expect(CurrencyUtils.formatCentsToCurrency('0').replace(/\u00a0/g, ' ')).toBe('R$ 0,00');
+      expect(CurrencyUtils.formatCentsToCurrency('').replace(/\u00a0/g, ' ')).toBe('R$ 0,00');
+    });
+  });
 });
