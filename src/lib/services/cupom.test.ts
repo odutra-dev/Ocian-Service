@@ -9,5 +9,11 @@ describe('CupomService', () => {
       expect(formatted).toMatch(/\d{2}\/\d{2}\/\d{4}/);
       expect(formatted).toMatch(/\d{2}:\d{2}/);
     });
+
+    it('returns N/A when date string is null, undefined or empty', () => {
+      expect(CupomService.formatarData(null)).toBe('N/A');
+      expect(CupomService.formatarData(undefined)).toBe('N/A');
+      expect(CupomService.formatarData('')).toBe('N/A');
+    });
   });
 });
