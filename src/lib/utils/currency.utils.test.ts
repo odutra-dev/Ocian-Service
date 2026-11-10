@@ -23,4 +23,12 @@ describe('CurrencyUtils', () => {
       expect(CurrencyUtils.formatDoubleToCurrency(1000000.5).replace(/\u00a0/g, ' ')).toBe('R$ 1.000.000,50');
     });
   });
+
+  describe('centsToDouble', () => {
+    it('converts cents string to double decimal number', () => {
+      expect(CurrencyUtils.centsToDouble('100')).toBe(1);
+      expect(CurrencyUtils.centsToDouble('1550')).toBe(15.5);
+      expect(CurrencyUtils.centsToDouble('5')).toBe(0.05);
+    });
+  });
 });
