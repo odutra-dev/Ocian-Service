@@ -30,5 +30,11 @@ describe('CurrencyUtils', () => {
       expect(CurrencyUtils.centsToDouble('1550')).toBe(15.5);
       expect(CurrencyUtils.centsToDouble('5')).toBe(0.05);
     });
+
+    it('strips non-numeric characters and returns 0 for empty or invalid strings', () => {
+      expect(CurrencyUtils.centsToDouble('R$ 15,50')).toBe(15.5);
+      expect(CurrencyUtils.centsToDouble('')).toBe(0);
+      expect(CurrencyUtils.centsToDouble('abc')).toBe(0);
+    });
   });
 });
