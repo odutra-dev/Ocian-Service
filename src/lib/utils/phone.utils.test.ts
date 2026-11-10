@@ -30,5 +30,12 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.formatPhoneDisplay('5513991234567')).toBe('+55 (13) 99123-4567');
       expect(PhoneUtils.formatPhoneDisplay('551334567890')).toBe('+55 (13) 3456-7890');
     });
+
+    it('returns empty string for null, undefined, 0 or empty inputs', () => {
+      expect(PhoneUtils.formatPhoneDisplay(null)).toBe('');
+      expect(PhoneUtils.formatPhoneDisplay(undefined)).toBe('');
+      expect(PhoneUtils.formatPhoneDisplay('')).toBe('');
+      expect(PhoneUtils.formatPhoneDisplay(0)).toBe('');
+    });
   });
 });
