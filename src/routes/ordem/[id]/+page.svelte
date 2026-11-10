@@ -118,7 +118,7 @@
   {:else}
     <div class="main-card">
       <!-- Header -->
-      <div class="page-header">
+      <div class="page-header order-header">
         <div class="header-left">
           <button class="back-button" type="button" aria-label="Voltar" onclick={voltar}>
             <i class="bi bi-arrow-left"></i>
@@ -132,47 +132,51 @@
         </div>
 
         <div class="header-actions">
-          <ThemeToggle />
+          <div class="theme-toggle-slot">
+            <ThemeToggle />
+          </div>
 
-          <button
-            type="button"
-            class="icon-btn action-print"
-            onclick={imprimir}
-            title="Imprimir Cupom Térmico"
-            aria-label="Imprimir Cupom Térmico"
-          >
-            <i class="bi bi-printer-fill"></i>
-          </button>
+          <div class="actions-group">
+            <button
+              type="button"
+              class="icon-btn action-print"
+              onclick={imprimir}
+              title="Imprimir Cupom Térmico"
+              aria-label="Imprimir Cupom Térmico"
+            >
+              <i class="bi bi-printer-fill"></i>
+            </button>
 
-          <button
-            type="button"
-            class="icon-btn action-whatsapp"
-            onclick={enviarWhatsApp}
-            title="Enviar mensagem via WhatsApp"
-            aria-label="Enviar mensagem via WhatsApp"
-          >
-            <i class="bi bi-whatsapp"></i>
-          </button>
+            <button
+              type="button"
+              class="icon-btn action-whatsapp"
+              onclick={enviarWhatsApp}
+              title="Enviar mensagem via WhatsApp"
+              aria-label="Enviar mensagem via WhatsApp"
+            >
+              <i class="bi bi-whatsapp"></i>
+            </button>
 
-          <button
-            type="button"
-            class="icon-btn action-edit"
-            onclick={editar}
-            title="Editar Ordem"
-            aria-label="Editar Ordem"
-          >
-            <i class="bi bi-pencil-fill"></i>
-          </button>
+            <button
+              type="button"
+              class="icon-btn action-edit"
+              onclick={editar}
+              title="Editar Ordem"
+              aria-label="Editar Ordem"
+            >
+              <i class="bi bi-pencil-fill"></i>
+            </button>
 
-          <button
-            type="button"
-            class="icon-btn action-delete"
-            onclick={excluir}
-            title="Excluir Ordem"
-            aria-label="Excluir Ordem"
-          >
-            <i class="bi bi-trash3-fill"></i>
-          </button>
+            <button
+              type="button"
+              class="icon-btn action-delete"
+              onclick={excluir}
+              title="Excluir Ordem"
+              aria-label="Excluir Ordem"
+            >
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -282,6 +286,59 @@
 <ImageLightbox images={imagens} currentIndex={lightboxIndex} bind:isOpen={lightboxOpen} />
 
 <style>
+  .actions-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .theme-toggle-slot {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    .order-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "left theme"
+        "actions actions";
+      gap: 14px 10px;
+      align-items: center;
+    }
+
+    .header-left {
+      grid-area: left;
+    }
+
+    .header-actions {
+      display: contents;
+    }
+
+    .theme-toggle-slot {
+      grid-area: theme;
+      justify-self: end;
+    }
+
+    .actions-group {
+      grid-area: actions;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      width: 100%;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .actions-group .icon-btn {
+      width: 100%;
+      height: 42px;
+      border-radius: 10px;
+    }
+  }
+
   .category-banner {
     display: flex;
     align-items: center;
@@ -301,7 +358,10 @@
   @media (max-width: 600px) {
     .details-grid {
       grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 12px;
+    }
+    .detail-item {
+      padding: 12px 14px;
     }
   }
 
@@ -341,6 +401,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    flex-wrap: wrap;
   }
 
   .btn-inline-whatsapp {
@@ -407,6 +468,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 12px;
+  }
+
+  @media (max-width: 600px) {
+    .photos-grid {
+      grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+      gap: 10px;
+    }
   }
 
   .photo-card {
