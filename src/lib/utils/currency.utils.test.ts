@@ -7,5 +7,10 @@ describe('CurrencyUtils', () => {
       const result = CurrencyUtils.formatDoubleToCurrency(0);
       expect(result.replace(/\u00a0/g, ' ')).toBe('R$ 0,00');
     });
+
+    it('formats null or undefined as zero BRL currency string', () => {
+      expect(CurrencyUtils.formatDoubleToCurrency(null).replace(/\u00a0/g, ' ')).toBe('R$ 0,00');
+      expect(CurrencyUtils.formatDoubleToCurrency(undefined).replace(/\u00a0/g, ' ')).toBe('R$ 0,00');
+    });
   });
 });
