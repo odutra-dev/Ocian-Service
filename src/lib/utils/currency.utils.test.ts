@@ -12,5 +12,10 @@ describe('CurrencyUtils', () => {
       expect(CurrencyUtils.formatDoubleToCurrency(null).replace(/\u00a0/g, ' ')).toBe('R$ 0,00');
       expect(CurrencyUtils.formatDoubleToCurrency(undefined).replace(/\u00a0/g, ' ')).toBe('R$ 0,00');
     });
+
+    it('formats positive decimal values with comma separator and decimals', () => {
+      expect(CurrencyUtils.formatDoubleToCurrency(15.5).replace(/\u00a0/g, ' ')).toBe('R$ 15,50');
+      expect(CurrencyUtils.formatDoubleToCurrency(99.99).replace(/\u00a0/g, ' ')).toBe('R$ 99,99');
+    });
   });
 });
