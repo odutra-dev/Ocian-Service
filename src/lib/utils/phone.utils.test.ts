@@ -7,5 +7,10 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.isBrazilianFormat('13991234567')).toBe(true);
       expect(PhoneUtils.isBrazilianFormat('11987654321')).toBe(true);
     });
+
+    it('returns true for valid 10-digit landline with valid DDD and prefix 2 to 5', () => {
+      expect(PhoneUtils.isBrazilianFormat('1334567890')).toBe(true);
+      expect(PhoneUtils.isBrazilianFormat('1122334455')).toBe(true);
+    });
   });
 });
