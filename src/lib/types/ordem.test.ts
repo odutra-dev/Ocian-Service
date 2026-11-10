@@ -47,3 +47,15 @@ describe('CATEGORIAS_ORDEM', () => {
     expect(CATEGORIAS_ORDEM).toEqual(['Carcaça', 'Bateria', 'Serviço']);
   });
 });
+
+describe('FORMAS_PAGAMENTO', () => {
+  it('contains exact predefined payment options Pix, Cartão de Crédito, Cartão de Débito, Dinheiro, and A pagar', () => {
+    expect(FORMAS_PAGAMENTO).toEqual([
+      'Pix',
+      'Cartão de Crédito',
+      'Cartão de Débito',
+      'Dinheiro',
+      'A pagar'
+    ]);
+  });
+});
