@@ -38,4 +38,11 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.formatPhoneDisplay(0)).toBe('');
     });
   });
+
+  describe('parseStoredPhone', () => {
+    it('parses phone starting with DDI 55 into ddi and national number', () => {
+      const parsed = PhoneUtils.parseStoredPhone('5513991234567');
+      expect(parsed).toEqual({ ddi: '55', phone: '13991234567' });
+    });
+  });
 });
