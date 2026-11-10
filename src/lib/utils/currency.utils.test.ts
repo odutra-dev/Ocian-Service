@@ -37,4 +37,12 @@ describe('CurrencyUtils', () => {
       expect(CurrencyUtils.centsToDouble('abc')).toBe(0);
     });
   });
+
+  describe('doubleToCentsDigits', () => {
+    it('converts positive double to integer cents string', () => {
+      expect(CurrencyUtils.doubleToCentsDigits(15.5)).toBe('1550');
+      expect(CurrencyUtils.doubleToCentsDigits(0.05)).toBe('5');
+      expect(CurrencyUtils.doubleToCentsDigits(100)).toBe('10000');
+    });
+  });
 });
