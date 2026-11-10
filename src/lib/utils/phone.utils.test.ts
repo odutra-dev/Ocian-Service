@@ -50,4 +50,13 @@ describe('PhoneUtils', () => {
       expect(parsed).toEqual({ ddi: '55', phone: '13991234567' });
     });
   });
+
+  describe('formatInputForDdi', () => {
+    it('formats Brazilian phone progressively with parentheses and hyphen while typing', () => {
+      expect(PhoneUtils.formatInputForDdi('55', '13')).toBe('(13');
+      expect(PhoneUtils.formatInputForDdi('55', '13991')).toBe('(13) 991');
+      expect(PhoneUtils.formatInputForDdi('55', '1334567890')).toBe('(13) 3456-7890');
+      expect(PhoneUtils.formatInputForDdi('55', '13991234567')).toBe('(13) 99123-4567');
+    });
+  });
 });
