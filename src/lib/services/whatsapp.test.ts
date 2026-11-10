@@ -26,4 +26,15 @@ describe('WhatsAppService', () => {
     expect(msg).toContain('💰 Forma de pagamento: Pix');
     expect(msg).toContain('💵 Valor total: *R$ 150,00*');
   });
+
+  it('omits client line and observation block when they are empty or null', () => {
+    const ordemSemOpcionais: Ordem = {
+      ...mockOrdem,
+      cliente: null,
+      observacao: null
+    };
+    const msg = WhatsAppService.formatarMensagemOrdem(ordemSemOpcionais);
+    expect(msg).not.toContain('👤 Cliente:');
+    expect(msg).not.toContain('📝 Observação:');
+  });
 });
