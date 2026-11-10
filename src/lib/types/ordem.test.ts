@@ -24,4 +24,12 @@ describe('parseImagens', () => {
       'https://example.com/foto2.png'
     ]);
   });
+
+  it('filters out non-http values when input is an array of strings', () => {
+    const raw = ['https://example.com/foto1.jpg', 'invalid-string', 'http://example.com/foto2.jpg'];
+    expect(parseImagens(raw)).toEqual([
+      'https://example.com/foto1.jpg',
+      'http://example.com/foto2.jpg'
+    ]);
+  });
 });
