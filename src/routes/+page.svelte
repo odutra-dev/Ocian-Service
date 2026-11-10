@@ -509,17 +509,56 @@
   }
 
   @media (max-width: 600px) {
-    .card-inner {
-      padding: 14px 12px;
-      gap: 10px;
+    .btn-nova-ordem {
+      padding: 8px 12px;
+      font-size: 0.88rem;
     }
+
+    .card-inner {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 14px 12px;
+      gap: 12px;
+    }
+
+    .info {
+      padding-left: 6px;
+    }
+
     .icon-container {
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .icon-btn-action {
+      width: 40px;
+      height: 40px;
+      font-size: 1.05rem;
+      border-radius: 10px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .search-input {
+      font-size: 16px;
+      padding: 11px 36px 11px 38px;
+    }
+
+    .app-header {
+      margin-bottom: 16px;
+    }
+
+    .card-top-row {
       gap: 6px;
     }
-    .icon-btn-action {
-      width: 32px;
-      height: 32px;
-      font-size: 0.9rem;
+
+    .id-text {
+      font-size: 1rem;
     }
   }
 </style>
