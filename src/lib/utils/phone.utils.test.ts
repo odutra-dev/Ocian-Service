@@ -25,5 +25,10 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.formatPhoneDisplay('13991234567')).toBe('(13) 99123-4567');
       expect(PhoneUtils.formatPhoneDisplay(13991234567)).toBe('(13) 99123-4567');
     });
+
+    it('formats Brazilian phone containing DDI 55 prefix', () => {
+      expect(PhoneUtils.formatPhoneDisplay('5513991234567')).toBe('+55 (13) 99123-4567');
+      expect(PhoneUtils.formatPhoneDisplay('551334567890')).toBe('+55 (13) 3456-7890');
+    });
   });
 });
