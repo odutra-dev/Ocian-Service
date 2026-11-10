@@ -99,6 +99,13 @@
     font-weight: 600;
   }
 
+  @media (max-width: 600px) {
+    .currency-field {
+      font-size: 16px;
+      min-height: 44px;
+    }
+  }
+
   .has-error .currency-field {
     border-color: var(--error);
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);

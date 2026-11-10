@@ -164,4 +164,29 @@
     flex: 1;
     min-width: 0;
   }
+
+  @media (max-width: 600px) {
+    .input-group {
+      min-height: 44px;
+    }
+
+    .ddi-select {
+      font-size: 16px;
+    }
+
+    .phone-field {
+      font-size: 16px !important;
+      padding: 11px 12px !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ddi-select-wrapper {
+      max-width: 105px;
+    }
+
+    .ddi-select {
+      padding: 10px 22px 10px 8px;
+    }
+  }
 </style>
