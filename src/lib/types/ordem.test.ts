@@ -11,4 +11,9 @@ describe('parseImagens', () => {
     expect(parseImagens('')).toEqual([]);
     expect(parseImagens('   ')).toEqual([]);
   });
+
+  it('extracts a single image URL from a stringified JSON array', () => {
+    const raw = '["https://example.com/storage/foto1.jpg"]';
+    expect(parseImagens(raw)).toEqual(['https://example.com/storage/foto1.jpg']);
+  });
 });
