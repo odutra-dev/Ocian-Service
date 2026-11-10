@@ -44,5 +44,13 @@ describe('CurrencyUtils', () => {
       expect(CurrencyUtils.doubleToCentsDigits(0.05)).toBe('5');
       expect(CurrencyUtils.doubleToCentsDigits(100)).toBe('10000');
     });
+
+    it('returns empty string for zero, negative, null, undefined or NaN', () => {
+      expect(CurrencyUtils.doubleToCentsDigits(0)).toBe('');
+      expect(CurrencyUtils.doubleToCentsDigits(-10)).toBe('');
+      expect(CurrencyUtils.doubleToCentsDigits(null)).toBe('');
+      expect(CurrencyUtils.doubleToCentsDigits(undefined)).toBe('');
+      expect(CurrencyUtils.doubleToCentsDigits(NaN)).toBe('');
+    });
   });
 });
