@@ -16,4 +16,22 @@ describe('CupomService', () => {
       expect(CupomService.formatarData('')).toBe('N/A');
     });
   });
+
+  describe('gerarPdf', () => {
+    it('generates a jsPDF instance configured for 70mm thermal paper', async () => {
+      const doc = await CupomService.gerarPdf({
+        id: 10,
+        data_criacao: '2026-11-10T15:00:00Z',
+        cliente: 'Cliente Teste',
+        whatsapp: '13991234567',
+        categoria: 'Serviço',
+        descricao: 'Abertura de porta residencial',
+        tipo_pagamento: 'Dinheiro',
+        valor: 80
+      });
+
+      expect(doc).toBeDefined();
+      expect(doc.internal.pageSize.getWidth()).toBe(70);
+    });
+  });
 });
