@@ -6,4 +6,9 @@ describe('parseImagens', () => {
     expect(parseImagens(null)).toEqual([]);
     expect(parseImagens(undefined)).toEqual([]);
   });
+
+  it('returns an empty array when input is an empty string', () => {
+    expect(parseImagens('')).toEqual([]);
+    expect(parseImagens('   ')).toEqual([]);
+  });
 });
