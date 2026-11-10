@@ -17,5 +17,10 @@ describe('CurrencyUtils', () => {
       expect(CurrencyUtils.formatDoubleToCurrency(15.5).replace(/\u00a0/g, ' ')).toBe('R$ 15,50');
       expect(CurrencyUtils.formatDoubleToCurrency(99.99).replace(/\u00a0/g, ' ')).toBe('R$ 99,99');
     });
+
+    it('formats thousands with thousand separator in BRL format', () => {
+      expect(CurrencyUtils.formatDoubleToCurrency(1250).replace(/\u00a0/g, ' ')).toBe('R$ 1.250,00');
+      expect(CurrencyUtils.formatDoubleToCurrency(1000000.5).replace(/\u00a0/g, ' ')).toBe('R$ 1.000.000,50');
+    });
   });
 });
