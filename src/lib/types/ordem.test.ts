@@ -32,4 +32,12 @@ describe('parseImagens', () => {
       'http://example.com/foto2.jpg'
     ]);
   });
+
+  it('extracts URLs from plain text or malformed strings containing URLs', () => {
+    const raw = '{imagens: https://example.com/a.jpg, https://example.com/b.png}';
+    expect(parseImagens(raw)).toEqual([
+      'https://example.com/a.jpg',
+      'https://example.com/b.png'
+    ]);
+  });
 });
