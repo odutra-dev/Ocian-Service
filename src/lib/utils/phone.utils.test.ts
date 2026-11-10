@@ -59,4 +59,13 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.formatInputForDdi('55', '13991234567')).toBe('(13) 99123-4567');
     });
   });
+
+  describe('getValidationError', () => {
+    it('returns error message for empty, invalid DDD or incomplete Brazilian phone', () => {
+      expect(PhoneUtils.getValidationError('55', '')).toBe('WhatsApp é obrigatório');
+      expect(PhoneUtils.getValidationError('55', '1')).toBe('Informe o DDD (2 dígitos)');
+      expect(PhoneUtils.getValidationError('55', '00991234567')).toContain('não é válido no Brasil');
+      expect(PhoneUtils.getValidationError('55', '13991')).toBe('Número incompleto (DDD + 8 ou 9 dígitos)');
+    });
+  });
 });
