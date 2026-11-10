@@ -44,5 +44,10 @@ describe('PhoneUtils', () => {
       const parsed = PhoneUtils.parseStoredPhone('5513991234567');
       expect(parsed).toEqual({ ddi: '55', phone: '13991234567' });
     });
+
+    it('defaults to DDI 55 when phone is a raw Brazilian national number', () => {
+      const parsed = PhoneUtils.parseStoredPhone('13991234567');
+      expect(parsed).toEqual({ ddi: '55', phone: '13991234567' });
+    });
   });
 });
