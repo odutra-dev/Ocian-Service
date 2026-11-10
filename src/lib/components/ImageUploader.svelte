@@ -215,9 +215,22 @@
   .btn-upload {
     flex: 1;
     padding: 10px 14px;
-    font-size: 0.88rem;
+    min-height: 42px;
+    font-size: 0.9rem;
     gap: 6px;
     border-style: dashed;
+  }
+
+  @media (max-width: 440px) {
+    .action-buttons {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-upload {
+      width: 100%;
+      min-height: 44px;
+    }
   }
 
   .upload-state {
@@ -248,7 +261,7 @@
 
   .thumbnails-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     gap: 10px;
     margin-top: 8px;
   }
@@ -280,33 +293,43 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 4px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding: 6px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
     display: flex;
     justify-content: flex-end;
-    gap: 4px;
+    gap: 6px;
   }
 
   .thumb-action-btn {
-    width: 26px;
-    height: 26px;
-    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: #fff;
     border: none;
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    transition: background 0.15s;
+    background: rgba(0, 0, 0, 0.6);
+    transition: background 0.15s, transform 0.15s;
+    touch-action: manipulation;
   }
 
   .thumb-action-btn:hover {
     background: rgba(0, 0, 0, 0.85);
+    transform: scale(1.05);
   }
 
   .thumb-action-btn.delete-btn:hover {
     background: var(--error);
+  }
+
+  @media (max-width: 600px) {
+    .thumb-action-btn {
+      width: 34px;
+      height: 34px;
+      font-size: 0.9rem;
+    }
   }
 </style>

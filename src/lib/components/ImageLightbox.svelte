@@ -262,17 +262,43 @@
 
   @media (max-width: 768px) {
     .lightbox-nav.prev {
-      left: 6px;
-      width: 42px;
-      height: 42px;
+      left: 10px;
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.6);
+      font-size: 1.25rem;
     }
+
     .lightbox-nav.next {
-      right: 6px;
-      width: 42px;
-      height: 42px;
+      right: 10px;
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.6);
+      font-size: 1.25rem;
     }
+
     .lightbox-close {
-      top: -42px;
+      position: fixed;
+      top: max(14px, env(safe-area-inset-top, 14px));
+      right: max(14px, env(safe-area-inset-right, 14px));
+      width: 44px;
+      height: 44px;
+      font-size: 1.35rem;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 100001;
+    }
+
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 68vh;
+    }
+
+    .lightbox-footer {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
     }
   }
 
