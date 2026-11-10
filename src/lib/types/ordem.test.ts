@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseImagens } from './ordem';
+import { parseImagens, CATEGORIAS_ORDEM, FORMAS_PAGAMENTO } from './ordem';
 
 describe('parseImagens', () => {
   it('returns an empty array when input is null or undefined', () => {
@@ -39,5 +39,11 @@ describe('parseImagens', () => {
       'https://example.com/a.jpg',
       'https://example.com/b.png'
     ]);
+  });
+});
+
+describe('CATEGORIAS_ORDEM', () => {
+  it('contains exact predefined categories Carcaça, Bateria, and Serviço', () => {
+    expect(CATEGORIAS_ORDEM).toEqual(['Carcaça', 'Bateria', 'Serviço']);
   });
 });
