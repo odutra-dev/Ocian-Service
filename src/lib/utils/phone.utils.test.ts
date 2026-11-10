@@ -12,5 +12,11 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.isBrazilianFormat('1334567890')).toBe(true);
       expect(PhoneUtils.isBrazilianFormat('1122334455')).toBe(true);
     });
+
+    it('returns false for invalid DDD or invalid digit length', () => {
+      expect(PhoneUtils.isBrazilianFormat('00991234567')).toBe(false); // DDD 00 doesn't exist
+      expect(PhoneUtils.isBrazilianFormat('1399123')).toBe(false); // too short
+      expect(PhoneUtils.isBrazilianFormat('1399123456789')).toBe(false); // too long
+    });
   });
 });
