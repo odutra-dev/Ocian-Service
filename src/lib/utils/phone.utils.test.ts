@@ -19,4 +19,11 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.isBrazilianFormat('1399123456789')).toBe(false); // too long
     });
   });
+
+  describe('formatPhoneDisplay', () => {
+    it('formats 11-digit Brazilian mobile phone with DDD and hyphen', () => {
+      expect(PhoneUtils.formatPhoneDisplay('13991234567')).toBe('(13) 99123-4567');
+      expect(PhoneUtils.formatPhoneDisplay(13991234567)).toBe('(13) 99123-4567');
+    });
+  });
 });
