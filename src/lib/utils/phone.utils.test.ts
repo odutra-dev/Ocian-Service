@@ -67,5 +67,10 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.getValidationError('55', '00991234567')).toContain('não é válido no Brasil');
       expect(PhoneUtils.getValidationError('55', '13991')).toBe('Número incompleto (DDD + 8 ou 9 dígitos)');
     });
+
+    it('returns null for valid Brazilian phone numbers', () => {
+      expect(PhoneUtils.getValidationError('55', '13991234567')).toBeNull();
+      expect(PhoneUtils.getValidationError('55', '1334567890')).toBeNull();
+    });
   });
 });
