@@ -17,4 +17,17 @@ describe('themeManager', () => {
     themeManager.setMode('system');
     expect(themeManager.mode).toBe('system');
   });
+
+  it('cycles mode across dark, light and system using toggle', () => {
+    themeManager.setMode('system');
+    themeManager.currentTheme = 'light';
+    themeManager.toggle();
+    expect(themeManager.mode).toBe('dark');
+
+    themeManager.toggle();
+    expect(themeManager.mode).toBe('light');
+
+    themeManager.toggle();
+    expect(themeManager.mode).toBe('system');
+  });
 });
