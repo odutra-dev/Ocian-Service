@@ -16,4 +16,12 @@ describe('parseImagens', () => {
     const raw = '["https://example.com/storage/foto1.jpg"]';
     expect(parseImagens(raw)).toEqual(['https://example.com/storage/foto1.jpg']);
   });
+
+  it('extracts multiple image URLs from a stringified JSON array', () => {
+    const raw = '["https://example.com/foto1.jpg", "https://example.com/foto2.png"]';
+    expect(parseImagens(raw)).toEqual([
+      'https://example.com/foto1.jpg',
+      'https://example.com/foto2.png'
+    ]);
+  });
 });
