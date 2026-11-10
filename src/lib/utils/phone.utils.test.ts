@@ -73,4 +73,12 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.getValidationError('55', '1334567890')).toBeNull();
     });
   });
+
+  describe('combineDdiAndNumber', () => {
+    it('returns national digits for Brazil (DDI 55) and prepends DDI for foreign countries', () => {
+      expect(PhoneUtils.combineDdiAndNumber('55', '13991234567')).toBe(13991234567);
+      expect(PhoneUtils.combineDdiAndNumber('1', '2025550123')).toBe(12025550123);
+      expect(PhoneUtils.combineDdiAndNumber('55', '')).toBe(0);
+    });
+  });
 });
