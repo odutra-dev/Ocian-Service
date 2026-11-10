@@ -114,13 +114,15 @@
       <div class="brand-badge">
         <i class="bi bi-key-fill"></i>
       </div>
-      <div>
+      <div class="brand-text">
         <h1 class="page-title">Chaveiro Ocian</h1>
         <p class="page-subtitle">Gerenciamento de ordens de serviço</p>
       </div>
     </div>
     <div class="header-actions">
-      <ThemeToggle />
+      <div class="theme-slot">
+        <ThemeToggle />
+      </div>
       <button type="button" class="btn btn-primary btn-nova-ordem" onclick={novaOrdem}>
         <i class="bi bi-plus-lg"></i>
         <span>Nova Ordem</span>
@@ -291,6 +293,22 @@
   /* Header da Aplicação */
   .app-header {
     margin-bottom: 20px;
+  }
+
+  .brand-text {
+    min-width: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .theme-slot {
+    display: flex;
+    align-items: center;
   }
 
   .btn-nova-ordem {
@@ -509,9 +527,40 @@
   }
 
   @media (max-width: 600px) {
+    .app-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "brand theme"
+        "action action";
+      gap: 14px 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .header-left {
+      grid-area: brand;
+      gap: 12px;
+    }
+
+    .header-actions {
+      display: contents;
+    }
+
+    .theme-slot {
+      grid-area: theme;
+      justify-self: end;
+    }
+
     .btn-nova-ordem {
-      padding: 8px 12px;
-      font-size: 0.88rem;
+      grid-area: action;
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      justify-content: center;
+      border-radius: 12px;
     }
 
     .card-inner {
@@ -544,13 +593,15 @@
   }
 
   @media (max-width: 420px) {
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      font-size: 1.3rem;
+    }
+
     .search-input {
       font-size: 16px;
       padding: 11px 36px 11px 38px;
-    }
-
-    .app-header {
-      margin-bottom: 16px;
     }
 
     .card-top-row {
