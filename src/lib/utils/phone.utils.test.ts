@@ -81,4 +81,13 @@ describe('PhoneUtils', () => {
       expect(PhoneUtils.combineDdiAndNumber('55', '')).toBe(0);
     });
   });
+
+  describe('helpers', () => {
+    it('returns expected placeholder and maximum length per country DDI', () => {
+      expect(PhoneUtils.getPlaceholderForDdi('55')).toBe('(13) 99999-9999');
+      expect(PhoneUtils.getMaxLengthForDdi('55')).toBe(11);
+      expect(PhoneUtils.getPlaceholderForDdi('1')).toBe('(202) 555-0123');
+      expect(PhoneUtils.getMaxLengthForDdi('1')).toBe(10);
+    });
+  });
 });
